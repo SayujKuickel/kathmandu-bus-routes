@@ -25,3 +25,7 @@ dist-ssr
 
 # Extra files
 .old_data
+
+
+coords_extractor/busindices.txt 
+coords_extractor/busStops.txt

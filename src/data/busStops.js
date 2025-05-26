@@ -154,4 +154,86 @@ export const busStops = [
     pos: [27.710036706649657, 85.32560265210881],
     showOnMap: true,
   },
+  {
+    id: "Kamal-Vinayak-Bus-Park",
+    name: "Kamal-Vinayak Bus Park",
+    pos: [27.6763685, 85.4372112],
+  },
+  {
+    id: "Thulo-Byasi-Bus-Stop",
+    name: "Thulo Byasi Bus Stop",
+    pos: [27.6755508, 85.430633],
+  },
+  {
+    id: "Kalo-Pati-Bus-Stop",
+    name: "Kalo Pati Bus Stop",
+    pos: [27.675438, 85.423659],
+  },
+  {
+    id: "Srijana-Nagar-Bus-Stop",
+    name: "Srijana Nagar Bus Stop",
+    pos: [27.67306, 85.403725],
+  },
+  {
+    id: "Gathaghar-Stop",
+    name: "Gathaghar Stop",
+    pos: [27.6738317, 85.3701894],
+  },
+  {
+    id: "Bus-Stop-Kausaltar",
+    name: "Bus Stop Kausaltar",
+    pos: [27.674522, 85.364013],
+  },
+  {
+    id: "Shantinagar-Bus-Station",
+    name: "Shantinagar Bus Station",
+    pos: [27.686731, 85.342826],
+  },
+  {
+    id: "Minbhawan-Bus-Stop",
+    name: "Minbhawan Bus Stop",
+    pos: [27.687961, 85.337068],
+  },
+  {
+    id: "New-Baneshwor-Bus-Stop",
+    name: "New Baneshwor Bus Stop",
+    pos: [27.6882473, 85.3329582],
+  },
+
+  {
+    id: "Babar-Mahal-Bus-Stand",
+    name: "Babar Mahal Bus Stand",
+    pos: [27.6906505, 85.3120056],
+  },
+  {
+    id: "Singha-Durbar-Bus-Station",
+    name: "Singha Durbar Bus Station",
+    pos: [27.6974576, 85.3148364],
+  },
+  //
+  {
+    id: "Kalanki-Bus-Stop",
+    name: "Kalanki Bus Stop",
+    pos: [27.6931126, 85.2798234],
+  },
+  {
+    id: "Kalimati-Bus-Stop",
+    name: "Kalimati Bus Stop",
+    pos: [27.6983507, 85.2991656],
+  },
+  {
+    id: "Tripureshwor-Bus-Stand",
+    name: "Tripureshwor Bus Stand",
+    pos: [27.694065, 85.312838],
+  },
+  {
+    id: "Thapathali-Bus-Stop",
+    name: "Thapathali Bus Stop",
+    pos: [27.6933618, 85.3174125],
+  },
+  {
+    id: "soltimode-bus-stop",
+    name: "Soltimode",
+    pos: [27.696627, 85.293592],
+  },
 ];

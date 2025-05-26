@@ -7,6 +7,7 @@ import {
   MAP_BOUNDS_TOP_LEFT,
 } from "@/constants/mapSettings";
 import BusRoute from "@/components/map/BusRoute";
+import { busRoutes } from "@/data/busRoutes";
 
 const BaseMap = ({
   MAP_CENTER,
@@ -45,7 +46,11 @@ const BaseMap = ({
           />
         )}
 
-        <BusRoute routeId={selectedRoute} />
+        {selectedRoute ? (
+          <BusRoute routeId={selectedRoute} />
+        ) : (
+          <ShowAllRoutes />
+        )}
 
         <ZoomControl position="bottomleft" />
       </MapContainer>

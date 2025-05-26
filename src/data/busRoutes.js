@@ -1,12 +1,12 @@
 export const busRoutes = {
   "": {
-    name: "Select Route",
+    name: "",
     lineColor: "",
     stopIds: [],
   },
   "rnac-sankhu": {
     name: "Rnac to Sankhu",
-    lineColor: "#440D4E",
+    lineColor: "#004541",
     stopIds: [
       "sankhu-new-buspark",
       "sankhu-old-buspark",
@@ -34,6 +34,36 @@ export const busRoutes = {
       "tudikhel",
       "ratnapark",
       "rnac",
+    ],
+  },
+  "Singha-Durbar-to-Kamal-Vinayak": {
+    name: "Singha Durbar to Kamal Vinayak",
+    lineColor: "#2D1E46",
+    stopIds: [
+      "Kamal-Vinayak-Bus-Park",
+      "Thulo-Byasi-Bus-Stop",
+      "Kalo-Pati-Bus-Stop",
+      "Srijana-Nagar-Bus-Stop",
+      "Gathaghar-Stop",
+      "Bus-Stop-Kausaltar",
+      "Shantinagar-Bus-Station",
+      "Minbhawan-Bus-Stop",
+      "New-Baneshwor-Bus-Stop",
+      "ratnapark",
+    ],
+  },
+
+  "Kalanki-to-Minbhawan": {
+    name: "Kalanki to Minbhawan",
+    lineColor: "#C06A14",
+    stopIds: [
+      "Kalanki-Bus-Stop",
+      "soltimode-bus-stop",
+      "Kalimati-Bus-Stop",
+      "Tripureshwor-Bus-Stand",
+      // "Thapathali-Bus-Stop",
+      "Minbhawan-Bus-Stop",
+      "Shantinagar-Bus-Station",
     ],
   },
 };
