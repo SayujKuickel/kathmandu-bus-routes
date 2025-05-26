@@ -15,8 +15,8 @@ const Routing = ({ coordinates = [], color = "#007aff" }) => {
       fitSelectedRoutes: false,
       addWaypoints: false,
       draggableWaypoints: false,
-      show: false, // 🚫 completely disable overlay
-      createMarker: () => null, // 🚫 disable default markers
+      show: false,
+      createMarker: () => null,
       lineOptions: {
         styles: [{ color, weight: 5, opacity: 0.8 }],
       },

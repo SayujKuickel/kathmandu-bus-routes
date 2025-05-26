@@ -1,0 +1,65 @@
+// HomePage.tsx
+import BaseMap from "@/components/map/BaseMap";
+import Button from "@/components/ui/Button";
+import { useUserLocation } from "@/hooks/useUserLocation";
+import { useHandleRoute } from "@/hooks/useHandleRoute";
+import RouteSelectSidebar from "@/components/routes/RouteSelectSidebar";
+import {
+  DEFAULT_ZOOM,
+  MAP_CENTER,
+  MAX_ZOOM_OUT,
+} from "@/constants/mapSettings";
+
+export default function HomePage() {
+  const {
+    userLocation,
+    isSearching,
+    setUserLocation,
+    startLocationSearch,
+    stopLocationSearch,
+  } = useUserLocation();
+
+  const { selectedRoute, setSelectedRoute } = useHandleRoute();
+
+  function handleLocateUser() {
+    startLocationSearch();
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setUserLocation([coords.latitude, coords.longitude]);
+      },
+      (err) => {
+        console.error("Geolocation error:", err);
+        stopLocationSearch();
+        alert("Failed to get your location. Please enable location services.");
+      },
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+    );
+  }
+
+  return (
+    <>
+      <Button
+        className="fixed bottom-8 right-8 z-[9999]"
+        onClick={handleLocateUser}
+        iconStyle={`text-xl ${
+          isSearching ? "fi fi-rr-loading animate-spin" : "fi fi-rr-marker"
+        }`}
+        aria-label="Locate me"
+      />
+
+      <RouteSelectSidebar
+        selectedRoute={selectedRoute}
+        setSelectedRoute={setSelectedRoute}
+      />
+
+      <BaseMap
+        MAP_CENTER={MAP_CENTER}
+        DEFAULT_ZOOM={DEFAULT_ZOOM}
+        MAX_ZOOM_OUT={MAX_ZOOM_OUT}
+        userLocation={userLocation}
+        selectedRoute={selectedRoute}
+      />
+    </>
+  );
+}

@@ -2,7 +2,7 @@ import { Circle, Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import { useEffect, useState } from "react";
 
-const BusStops = ({ lat, lon, popupText, lineColor = "#ff0000" }) => {
+const BusStop = ({ position, stopName, lineColor = "#ff0000" }) => {
   const map = useMap();
   const [zoom, setZoom] = useState(0);
 
@@ -24,14 +24,14 @@ const BusStops = ({ lat, lon, popupText, lineColor = "#ff0000" }) => {
   });
 
   return zoom > 15 ? (
-    <Marker position={[lat, lon]} icon={customMarker}>
-      {popupText && <Popup>{popupText}</Popup>}
+    <Marker position={position} icon={customMarker}>
+      {stopName && <Popup>{stopName}</Popup>}
     </Marker>
   ) : (
-    <Circle center={[lat, lon]} radius={20} pathOptions={{ color: lineColor }}>
-      {popupText && <Popup>{popupText}</Popup>}
+    <Circle center={position} radius={20} pathOptions={{ color: lineColor }}>
+      {stopName && <Popup>{stopName}</Popup>}
     </Circle>
   );
 };
 
-export default BusStops;
+export default BusStop;

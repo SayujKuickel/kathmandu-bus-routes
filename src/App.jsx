@@ -1,13 +1,7 @@
-import React from "react";
-// import Map from "./components/Map";
-import Map from "./components/Map";
+import HomePage from "@/pages/HomePage";
 
 const App = () => {
-  return (
-    <div className="w-screen h-screen overflow-hidden">
-      <Map />
-    </div>
-  );
+  return <HomePage />;
 };
 
 export default App;
