@@ -17,7 +17,7 @@ const RouteSelectSidebar = ({ selectedRoute, setSelectedRoute }) => {
           id="routeSelect"
           className=" text-sm rounded-lg cursor-pointer block w-full p-2.5 bg-neutral-900 border-neutral-600 placeholder-neutral-400 text-white"
         >
-          <option value="">All Route</option>
+          <option value="">View All Routes</option>
           {routeKeys
             .filter((key) => key !== "")
             .map((item, key) => (

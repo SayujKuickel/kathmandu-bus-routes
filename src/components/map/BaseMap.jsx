@@ -7,7 +7,7 @@ import {
   MAP_BOUNDS_TOP_LEFT,
 } from "@/constants/mapSettings";
 import BusRoute from "@/components/map/BusRoute";
-import { busRoutes } from "@/data/busRoutes";
+import ShowAllRoutes from "@/components/map/ShowAllRoutes";
 
 const BaseMap = ({
   MAP_CENTER,
