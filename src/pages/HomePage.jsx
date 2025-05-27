@@ -9,17 +9,24 @@ import {
   MAP_CENTER,
   MAX_ZOOM_OUT,
 } from "@/constants/mapSettings";
+import { DEFAULT_MAP_TILE } from "@/constants/mapTileOptions";
+import { useState } from "react";
+import RightSidebarWrapper from "@/components/sidebar/RightSidebarWrapper";
 
 export default function HomePage() {
   const {
     userLocation,
-    isSearching,
+    isSearchingLocation,
     setUserLocation,
     startLocationSearch,
     stopLocationSearch,
   } = useUserLocation();
 
   const { selectedRoute, setSelectedRoute } = useHandleRoute();
+
+  const [mapTileType, setMapTileType] = useState(
+    localStorage.getItem("default-tile-layer") || DEFAULT_MAP_TILE
+  );
 
   function handleLocateUser() {
     startLocationSearch();
@@ -39,23 +46,20 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="fixed top-5 right-5 md:bottom-8 md:right-8 z-[9999]">
-        <Button
-          onClick={handleLocateUser}
-          iconStyle={`text-xl ${
-            isSearching ? "fi fi-rr-loading animate-spin" : "fi fi-rr-marker"
-          }`}
-          aria-label="Locate me"
-        />
-      </div>
-
       {/* <span className="fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-neutral-800 text-text text-center px-2 py-1 rounded-lg shadow-amber-300/25 shadow-lg">
         This site is under development. Data may be incomplete/wrong.
       </span> */}
 
       <LeftSidebarWrapper
         selectedRoute={selectedRoute}
-        setSelectedRoute={setSelectedRoute}
+        onSelectedRoute={setSelectedRoute}
+      />
+
+      <RightSidebarWrapper
+        onLocateUser={handleLocateUser}
+        isSearchingLocation={isSearchingLocation}
+        mapTileType={mapTileType}
+        onMapTileType={setMapTileType}
       />
 
       <BaseMap
@@ -64,6 +68,8 @@ export default function HomePage() {
         MAX_ZOOM_OUT={MAX_ZOOM_OUT}
         userLocation={userLocation}
         selectedRoute={selectedRoute}
+        mapTileType={mapTileType}
+        onMapTileType={setMapTileType}
       />
     </>
   );

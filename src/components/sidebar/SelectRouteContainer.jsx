@@ -1,7 +1,7 @@
 import { busRoutes } from "@/data/busRoutes";
 import Button from "@/components/ui/Button";
 
-const RouteSelectSidebar = ({
+const SelectRouteContainer = ({
   showRouteDetails,
   selectedRoute,
   onSelectedRoute,
@@ -19,7 +19,7 @@ const RouteSelectSidebar = ({
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-semibold ">Select Route</h3>
 
-        {selectedRoute !== "" && (
+        {selectedRoute !== "" && selectedRoute && (
           <Button
             onClick={handleToggleRouteValue}
             className="text-sm"
@@ -49,4 +49,4 @@ const RouteSelectSidebar = ({
     </section>
   );
 };
-export default RouteSelectSidebar;
+export default SelectRouteContainer;

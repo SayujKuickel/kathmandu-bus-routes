@@ -3,6 +3,10 @@
 
 @theme {
   --color-text: #bcbcbc;
+  --color-sa-red: "#BC2C36";
+  --color-sa-green: "#12A82E";
+  --color-sa-blue: "#024885";
+  --color-sa-yellow: "#D5B63E";
 }
 
 .scrollbar-sa {

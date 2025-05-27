@@ -8,6 +8,7 @@ import {
 } from "@/constants/mapSettings";
 import BusRoute from "@/components/map/BusRoute";
 import ShowAllRoutes from "@/components/map/ShowAllRoutes";
+import { DEFAULT_MAP_TILE, mapTileOptions } from "@/constants/mapTileOptions";
 
 const BaseMap = ({
   MAP_CENTER,
@@ -15,6 +16,8 @@ const BaseMap = ({
   MAX_ZOOM_OUT,
   userLocation,
   selectedRoute,
+  mapTileType,
+  onMapTileType,
 }) => {
   return (
     <div className="w-screen h-screen overflow-hidden">
@@ -29,7 +32,7 @@ const BaseMap = ({
         maxBoundsViscosity={1.0}
         style={{ height: "100%", width: "100%" }}
       >
-        <TileMapLayer />
+        <TileMapLayer mapTileType={mapTileType} onMapTileType={onMapTileType} />
 
         {userLocation && (
           <UserPostion
@@ -49,20 +52,17 @@ const BaseMap = ({
   );
 };
 
-function TileMapLayer() {
+function TileMapLayer({ mapTileType }) {
+  const mapOverlayDetails = mapTileOptions[mapTileType]
+    ? mapTileOptions[mapTileType]
+    : mapTileOptions[DEFAULT_MAP_TILE];
+
   return (
     <>
-      {/* - Tilemap from Carto  */}
       <TileLayer
-        attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+        attribution={mapOverlayDetails.attribution}
+        url={mapOverlayDetails.url}
       />
-
-      {/* - Tilemap from openstreet map */}
-      {/* <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        /> */}
     </>
   );
 }
