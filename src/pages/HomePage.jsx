@@ -49,10 +49,15 @@ export default function HomePage() {
         />
       </div>
 
+      {/* <span className="fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-neutral-800 text-text text-center px-2 py-1 rounded-lg shadow-amber-300/25 shadow-lg">
+        This site is under development. Data may be incomplete/wrong.
+      </span> */}
+
       <LeftSidebarWrapper
         selectedRoute={selectedRoute}
         setSelectedRoute={setSelectedRoute}
       />
+
       <BaseMap
         MAP_CENTER={MAP_CENTER}
         DEFAULT_ZOOM={DEFAULT_ZOOM}
