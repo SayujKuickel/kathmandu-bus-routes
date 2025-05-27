@@ -3,7 +3,7 @@ import BaseMap from "@/components/map/BaseMap";
 import Button from "@/components/ui/Button";
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { useHandleRoute } from "@/hooks/useHandleRoute";
-import RouteSelectSidebar from "@/components/routes/RouteSelectSidebar";
+import LeftSidebarWrapper from "@/components/sidebar/LeftSidebarWrapper";
 import {
   DEFAULT_ZOOM,
   MAP_CENTER,
@@ -39,16 +39,17 @@ export default function HomePage() {
 
   return (
     <>
-      <Button
-        className="fixed bottom-8 right-8 z-[9999]"
-        onClick={handleLocateUser}
-        iconStyle={`text-xl ${
-          isSearching ? "fi fi-rr-loading animate-spin" : "fi fi-rr-marker"
-        }`}
-        aria-label="Locate me"
-      />
+      <div className="fixed top-5 right-5 md:bottom-8 md:right-8 z-[9999]">
+        <Button
+          onClick={handleLocateUser}
+          iconStyle={`text-xl ${
+            isSearching ? "fi fi-rr-loading animate-spin" : "fi fi-rr-marker"
+          }`}
+          aria-label="Locate me"
+        />
+      </div>
 
-      <RouteSelectSidebar
+      <LeftSidebarWrapper
         selectedRoute={selectedRoute}
         setSelectedRoute={setSelectedRoute}
       />

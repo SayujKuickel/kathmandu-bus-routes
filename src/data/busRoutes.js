@@ -37,8 +37,8 @@ export const busRoutes = {
     ],
   },
   "Singha-Durbar-to-Kamal-Vinayak": {
-    name: "Singha Durbar to Kamal Vinayak",
-    lineColor: "#2D1E46",
+    name: "Singha Durbar to Ratnapark",
+    lineColor: "#08A2B8",
     stopIds: [
       "Kamal-Vinayak-Bus-Park",
       "Thulo-Byasi-Bus-Stop",

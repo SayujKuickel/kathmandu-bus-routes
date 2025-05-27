@@ -210,7 +210,6 @@ export const busStops = [
     name: "Singha Durbar Bus Station",
     pos: [27.6974576, 85.3148364],
   },
-  //
   {
     id: "Kalanki-Bus-Stop",
     name: "Kalanki Bus Stop",

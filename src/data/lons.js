@@ -37,7 +37,7 @@ const lons = {
   koteshwore: { name: "koteshwore", lat: 27.6788696, lng: 85.3497112 },
   kupandole: { name: "Kupandole", lat: 27.6881731, lng: 85.3161266 },
   "lagankhel-bus-stop": {
-    name: "Lagankhel bus stop",
+    name: "Lagankhel ",
     lat: 27.6671965,
     lng: 85.3223108,
   },

@@ -1,12 +1,20 @@
-# React + Vite
+## Welcome
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Kathmandu Bus Routes project! This application aims to provide a clear and interactive map of various bus routes across Kathmandu, Nepal. I am building this app to solve the lack of centralized, easily accessible route information.
 
-Currently, two official plugins are available:
+This project is being actively developed and you can see the full feature list i will be adding in the [Notion page](https://www.notion.so/2002054224e68038b8f1dd5e64f0a636?v=2002054224e681548951000c5b4845fc).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Checkout the demo [here](https://kathmandu-bus-routes.vercel.app/).
 
-## Expanding the ESLint configuration
+### Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is being built on react with the following tools and libraries
+
+- React Vite with Tailwind
+- React Leaflet
+- React Routing Machine [(OSRM)](https://www.liedman.net/leaflet-routing-machine/)
+- Hosted on Vercel
+
+---
+
+Developed by [Sayuj Kuickel](https://sayuj.com.np/).
