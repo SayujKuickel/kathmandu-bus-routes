@@ -5,6 +5,35 @@
   --color-text: #bcbcbc;
 }
 
+.scrollbar-sa {
+  scrollbar-width: thin;
+  scrollbar-color: #a3a3a3 transparent;
+}
+
+.scrollbar-sa::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-sa::-webkit-scrollbar-thumb {
+  background-color: #a3a3a3;
+  border-radius: 4px;
+}
+
+.scrollbar-sa::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;

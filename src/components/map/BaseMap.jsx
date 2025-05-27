@@ -29,14 +29,17 @@ const BaseMap = ({
         maxBoundsViscosity={1.0}
         style={{ height: "100%", width: "100%" }}
       >
+        {/* - Tilemap from Carto  */}
         <TileLayer
           attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
         />
-        {/* - Tilemap from openstreet map
-        <TileLayer 
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' 
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" /> */}
+
+        {/* - Tilemap from openstreet map */}
+        {/* <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        /> */}
 
         {userLocation && (
           <UserPostion
@@ -45,13 +48,11 @@ const BaseMap = ({
             DEFAULT_ZOOM={DEFAULT_ZOOM}
           />
         )}
-
         {selectedRoute ? (
           <BusRoute routeId={selectedRoute} />
         ) : (
           <ShowAllRoutes />
         )}
-
         <ZoomControl position="bottomleft" />
       </MapContainer>
     </div>

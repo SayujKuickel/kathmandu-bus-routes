@@ -11,6 +11,7 @@ const LeftSidebarWrapper = ({ selectedRoute, setSelectedRoute }) => {
         <RouteSelectSidebar
           showRouteDetails={showRouteDetails}
           onShowRouteDetails={setShowRouteDetails}
+          selectedRoute={selectedRoute}
           onSelectedRoute={setSelectedRoute}
         />
 

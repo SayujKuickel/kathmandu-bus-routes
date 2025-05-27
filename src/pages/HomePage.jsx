@@ -53,7 +53,6 @@ export default function HomePage() {
         selectedRoute={selectedRoute}
         setSelectedRoute={setSelectedRoute}
       />
-
       <BaseMap
         MAP_CENTER={MAP_CENTER}
         DEFAULT_ZOOM={DEFAULT_ZOOM}
