@@ -10,7 +10,6 @@ const SelectRouteContainer = ({
   const routeKeys = Object.keys(busRoutes);
 
   function handleToggleRouteValue() {
-    console.log(showRouteStops);
     onShowRouteDetails((prev) => !prev);
   }
 

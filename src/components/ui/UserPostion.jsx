@@ -6,7 +6,7 @@ function UserPostion({ position, DEFAULT_ZOOM }) {
   const map = useMap();
 
   useEffect(() => {
-    map.flyTo(position, DEFAULT_ZOOM + 1);
+    map.flyTo(position, 18);
   }, [DEFAULT_ZOOM, position, map]);
 
   const customMarker = L.divIcon({

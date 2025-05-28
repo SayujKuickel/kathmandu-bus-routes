@@ -16,7 +16,7 @@ const BusRoute = ({ routeId }) => {
     const route = busRoutes[routeId];
 
     if (!route) {
-      console.log(`no route found with id: ${routeId}`);
+      console.warn(`no route found with id: ${routeId}`);
       return;
     }
 

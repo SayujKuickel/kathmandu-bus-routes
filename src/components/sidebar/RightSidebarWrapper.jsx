@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import LayerToggleContainer from "@/components/LayerChanger/LayerToggleContainer";
+import { Link } from "react-router-dom";
 
 const RightSidebarWrapper = ({
   onLocateUser,
@@ -24,6 +25,12 @@ const RightSidebarWrapper = ({
           mapTileType={mapTileType}
           onMapTileType={onMapTileType}
         />
+        <Link to={"/bus"}>
+          <Button
+            iconStyle={`text-xl "fi fi-rr-bus-alt`}
+            aria-label="Locate me"
+          />
+        </Link>
       </div>
     </section>
   );

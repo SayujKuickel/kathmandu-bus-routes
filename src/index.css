@@ -9,7 +9,7 @@
   --color-sa-yellow: #d5b63e;
 
   /* Base Colors */
-  --color-bg: #121212;
+  --color-background: #121212;
   --color-text: #e0e0e0;
 
   /* Surface Layers */
@@ -28,6 +28,18 @@
   --color-on-surface: #e0e0e0;
 }
 
+:root {
+  --ratio: 0.15vw;
+
+  --s1: calc(40px + var(--ratio));
+  --s2: calc(32px + var(--ratio));
+  --s3: calc(24px + var(--ratio));
+  --s4: calc(20px + var(--ratio));
+  --s5: calc(16px + var(--ratio));
+  --s6: calc(14px + var(--ratio));
+}
+
+/* Custom scrollbar */
 .scrollbar-sa {
   scrollbar-width: thin;
   scrollbar-color: #a3a3a3 transparent;
@@ -47,6 +59,7 @@
   background: transparent;
 }
 
+/* no scrollbar for tailwind */
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -57,8 +70,57 @@
   }
 }
 
+/* default styles */
 body {
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+/*  */
+.heading-1 {
+  font-size: var(--s1);
+}
+
+.heading-2 {
+  font-size: var(--s2);
+}
+
+.heading-3 {
+  font-size: var(--s3);
+}
+.heading-4 {
+  font-size: var(--s4);
+}
+
+.heading-5 {
+  font-size: var(--s5);
+}
+
+/*  */
+.container-small {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container-small {
+    max-width: 490px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-small {
+    max-width: 618px;
+  }
+}
+@media (min-width: 1024px) {
+  .container-small {
+    max-width: 874px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-small {
+    max-width: 1030px;
+  }
 }

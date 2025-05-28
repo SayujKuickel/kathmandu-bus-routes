@@ -6,7 +6,7 @@ function ShowAllRoutes() {
   return (
     <>
       {routeIds.map((route) => (
-        <BusRoute routeId={route} />
+        <BusRoute key={route} routeId={route} />
       ))}
     </>
   );

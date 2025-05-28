@@ -11,7 +11,6 @@ function LayerToggleContainer({ mapTileType, onMapTileType }) {
 
   function handdleChangeTilemapLayer(item) {
     localStorage.setItem("default-tile-layer", item);
-    console.log(item);
 
     onMapTileType(item);
   }

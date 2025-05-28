@@ -1,6 +1,5 @@
 // HomePage.tsx
 import BaseMap from "@/components/map/BaseMap";
-import Button from "@/components/ui/Button";
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { useHandleRoute } from "@/hooks/useHandleRoute";
 import LeftSidebarWrapper from "@/components/sidebar/LeftSidebarWrapper";

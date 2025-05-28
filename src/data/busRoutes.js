@@ -36,7 +36,7 @@ export const busRoutes = {
       "rnac",
     ],
   },
-  "Singha-Durbar-to-Kamal-Vinayak": {
+  "singha-durbar-to-kamal-vinayak": {
     name: "Singha Durbar to Ratnapark",
     lineColor: "#08A2B8",
     stopIds: [
@@ -53,7 +53,7 @@ export const busRoutes = {
     ],
   },
 
-  "Kalanki-to-Minbhawan": {
+  "kalanki-to-minbhawan": {
     name: "Kalanki to Minbhawan",
     lineColor: "#C06A14",
     stopIds: [
@@ -61,7 +61,6 @@ export const busRoutes = {
       "soltimode-bus-stop",
       "Kalimati-Bus-Stop",
       "Tripureshwor-Bus-Stand",
-      // "Thapathali-Bus-Stop",
       "Minbhawan-Bus-Stop",
       "Shantinagar-Bus-Station",
     ],
