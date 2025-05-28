@@ -10,7 +10,26 @@ const RightSidebarWrapper = ({
 }) => {
   return (
     <section className="fixed top-4 right-4 w-fit z-[99999]">
-      <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Link to={"/bus"}>
+          <Button
+            iconStyle={`text-xl fi fi-rr-bus-alt`}
+            aria-label="Bus Routes"
+          />
+        </Link>
+
+        <Link to={"/contact"}>
+          <Button
+            iconStyle={`text-xl fi fi-rr-comment-alt`}
+            aria-label="Contact"
+          />
+        </Link>
+
+        <LayerToggleContainer
+          mapTileType={mapTileType}
+          onMapTileType={onMapTileType}
+        />
+
         <Button
           onClick={onLocateUser}
           iconStyle={`text-xl ${
@@ -21,16 +40,7 @@ const RightSidebarWrapper = ({
           aria-label="Locate me"
         />
 
-        <LayerToggleContainer
-          mapTileType={mapTileType}
-          onMapTileType={onMapTileType}
-        />
-        <Link to={"/bus"}>
-          <Button
-            iconStyle={`text-xl "fi fi-rr-bus-alt`}
-            aria-label="Locate me"
-          />
-        </Link>
+        {/*  */}
       </div>
     </section>
   );

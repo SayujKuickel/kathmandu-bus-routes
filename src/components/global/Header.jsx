@@ -16,9 +16,9 @@ const routes = [
   },
 ];
 
-export const Header = () => {
+const Header = () => {
   return (
-    <header className="bg-surface">
+    <header className="bg-surface-1">
       <div className="container mx-auto px-5 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to={"/"} className="block w-14 aspect-square">
@@ -48,3 +48,4 @@ export const Header = () => {
     </header>
   );
 };
+export default Header;

@@ -124,3 +124,22 @@ body {
     max-width: 1030px;
   }
 }
+
+/*  */
+.leaflet-control-container .leaflet-bottom.leaflet-left {
+  display: block;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .leaflet-control-container .leaflet-bottom.leaflet-left {
+    display: none;
+  }
+
+  .leaflet-control-container .leaflet-top.leaflet-left {
+    display: block;
+  }
+}

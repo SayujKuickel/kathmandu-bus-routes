@@ -1,4 +1,4 @@
-import { Header } from "@/components/global/Header";
+import Header from "@/components/global/Header";
 import ViewBusStops from "@/components/bus/ViewBusStops";
 import { busRoutes } from "@/data/busRoutes";
 import Button from "@/components/ui/Button";

@@ -46,6 +46,9 @@ const BaseMap = ({
         ) : (
           <ShowAllRoutes />
         )}
+
+        <ZoomControl position="topleft" />
+
         <ZoomControl position="bottomleft" />
       </MapContainer>
     </div>
