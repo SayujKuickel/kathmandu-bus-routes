@@ -3,13 +3,14 @@ import ViewBusStops from "@/components/bus/ViewBusStops";
 import { busRoutes } from "@/data/busRoutes";
 import Button from "@/components/ui/Button";
 import { Link } from "react-router-dom";
+import Footer from "@/components/global/Footer";
 
 const ViewAllBusRoutes = () => {
   return (
     <main className="bg-background text-text min-h-screen">
       <Header />
 
-      <div className="container-small mx-auto px-5 pt-8 pb-32">
+      <div className="container-small mx-auto px-5 my-8">
         <h1 className="heading-1 font-bold mb-4">All Bus Routes</h1>
 
         <ul className="space-y-4">
@@ -58,6 +59,8 @@ const ViewAllBusRoutes = () => {
           })}
         </ul>
       </div>
+
+      <Footer />
     </main>
   );
 };

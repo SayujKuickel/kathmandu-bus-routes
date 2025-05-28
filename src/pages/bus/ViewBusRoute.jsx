@@ -1,9 +1,10 @@
-import ViewBusStops from "../../components/bus/ViewBusStops";
-import Button from "../../components/ui/Button";
-import { Header } from "../../components/global/Header";
+import ViewBusStops from "@/components/bus/ViewBusStops";
+import Button from "@/components/ui/Button";
+import { Header } from "@/components/global/Header";
 import { Link, useParams } from "react-router-dom";
-import { busRoutes } from "../../data/busRoutes";
+import { busRoutes } from "@/data/busRoutes";
 import { useEffect, useState } from "react";
+import Footer from "@/components/global/Footer";
 
 const ViewBusRoute = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const ViewBusRoute = () => {
       <Header />
 
       {route ? (
-        <section className="container-small mx-auto px-5 pt-8 pb-32">
+        <section className="container-small mx-auto px-5 my-8">
           <div className="p-4 bg-surface rounded-lg  border border-on-primary/25">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
               <h3 className="heading-3 font-semibold flex items-center">
@@ -69,6 +70,8 @@ const ViewBusRoute = () => {
           </Link>
         </div>
       )}
+
+      <Footer />
     </main>
   );
 };
