@@ -2,7 +2,7 @@ import { useReducer } from "react";
 
 const initialState = {
   userLocation: null,
-  isSearching: false,
+  isSearchingLocation: false,
 };
 
 const ACTION_TYPES = {
@@ -17,17 +17,17 @@ function userLocationReducer(state, action) {
       return {
         ...state,
         userLocation: action.payload,
-        isSearching: false,
+        isSearchingLocation: false,
       };
     case ACTION_TYPES.START_SEARCH:
       return {
         ...state,
-        isSearching: true,
+        isSearchingLocation: true,
       };
     case ACTION_TYPES.STOP_SEARCH:
       return {
         ...state,
-        isSearching: false,
+        isSearchingLocation: false,
       };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -51,7 +51,7 @@ export const useUserLocation = () => {
 
   return {
     userLocation: state.userLocation,
-    isSearching: state.isSearching,
+    isSearchingLocation: state.isSearchingLocation,
     setUserLocation,
     startLocationSearch,
     stopLocationSearch,

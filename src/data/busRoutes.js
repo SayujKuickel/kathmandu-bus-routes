@@ -7,6 +7,7 @@ export const busRoutes = {
   "rnac-sankhu": {
     name: "Rnac to Sankhu",
     lineColor: "#004541",
+    timeMin: 90,
     stopIds: [
       "sankhu-new-buspark",
       "sankhu-old-buspark",

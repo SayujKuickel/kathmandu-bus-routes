@@ -21,7 +21,8 @@ const SelectRouteContainer = ({
         {selectedRoute !== "" && selectedRoute && (
           <Button
             onClick={handleToggleRouteValue}
-            className="text-sm"
+            className="text-xs"
+            iconStyle={showRouteStops ? "fi fi-rr-eye-crossed" : "fi fi-rr-eye"}
             title={showRouteStops ? "Hide Stops" : "Show Stops"}
           />
         )}

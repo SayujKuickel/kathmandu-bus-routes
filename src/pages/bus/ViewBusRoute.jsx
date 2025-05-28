@@ -42,9 +42,19 @@ const ViewBusRoute = () => {
                 <Button
                   className="px-4 border border-on-surface/25"
                   title="View in Map"
+                  iconStyle="fi fi-rr-map"
                 />
               </Link>
             </div>
+
+            <p className="mb-4">
+              {route?.timeMin && (
+                <p className="flex items-center gap-2">
+                  <i className="fi fi-rr-clock-three flex"></i> {route?.timeMin}{" "}
+                  mins
+                </p>
+              )}
+            </p>
 
             <ViewBusStops viewAll={true} selectedRouteId={id} />
           </div>

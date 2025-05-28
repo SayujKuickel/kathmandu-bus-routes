@@ -13,13 +13,16 @@ const ViewAllBusRoutes = () => {
         <h1 className="heading-1 font-bold mb-4">All Bus Routes</h1>
 
         <ul className="space-y-4">
-          {Object.keys(busRoutes).map((item) => {
-            const route = busRoutes[item];
+          {Object.keys(busRoutes).map((routeId) => {
+            const route = busRoutes[routeId];
 
             if (route.name === "") return null;
 
             return (
-              <li className="p-4 bg-surface rounded-lg  border border-on-primary/25">
+              <li
+                key={routeId}
+                className="p-4 bg-surface rounded-lg  border border-on-primary/25"
+              >
                 <h3 className="heading-3 font-semibold mb-4 flex items-center">
                   <span
                     style={{ background: route?.lineColor }}
@@ -29,20 +32,23 @@ const ViewAllBusRoutes = () => {
                   {route.name}
                 </h3>
 
-                <ViewBusStops selectedRouteId={item} />
+                <section className="mt-4 mb-6">
+                  <ViewBusStops selectedRouteId={routeId} />
+                </section>
 
-                <br />
                 <div className="flex items-center gap-2">
-                  <Link to={`/bus/${item}`}>
+                  <Link to={`/bus/${routeId}`}>
                     <Button
-                      className="px-4 border border-on-surface/25"
+                      className="px-4 border border-on-surface/25 "
                       title="View all Stops"
+                      iconStyle="fi fi-rr-eye"
                     />
                   </Link>
 
-                  <Link to={`/?route=${item}`}>
+                  <Link to={`/?route=${routeId}`}>
                     <Button
-                      className="px-4 border border-on-surface/25"
+                      className="px-4 border border-on-surface/25 "
+                      iconStyle="fi fi-rr-map"
                       title="View in Map"
                     />
                   </Link>

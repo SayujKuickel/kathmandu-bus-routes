@@ -7,7 +7,7 @@ const Button = ({ onClick, title, iconStyle, className }) => {
     >
       {iconStyle && <i className={`flex ${iconStyle}`} />}
 
-      {title && title}
+      {title && <span className="leading-5">{title}</span>}
     </button>
   );
 };
