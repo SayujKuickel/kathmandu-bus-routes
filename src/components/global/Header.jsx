@@ -24,7 +24,7 @@ export const Header = () => {
           <Link to={"/"} className="block w-14 aspect-square">
             <img src="/web-app-manifest-512x512.png" alt="logo" />
           </Link>
-          <p>
+          <p className="hidden md:block">
             <span className="block text-xl font-bold -mb-1">Kathmandu</span>
             <span className="block">Bus Routes</span>
           </p>

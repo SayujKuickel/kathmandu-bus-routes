@@ -28,7 +28,7 @@ const ViewBusRoute = () => {
       {route ? (
         <section className="container-small mx-auto px-5 pt-8 pb-32">
           <div className="p-4 bg-surface rounded-lg  border border-on-primary/25">
-            <div className="flex items-center justify-between gap-2 mb-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
               <h3 className="heading-3 font-semibold flex items-center">
                 <span
                   style={{ background: route?.lineColor }}

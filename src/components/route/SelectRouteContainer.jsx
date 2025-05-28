@@ -40,7 +40,7 @@ const SelectRouteContainer = ({
         {routeKeys
           .filter((key) => key !== "")
           .map((item, key) => (
-            <option key={key} value={item}>
+            <option key={key} value={item} selected={selectedRoute === item}>
               {busRoutes[item].name}
             </option>
           ))}
