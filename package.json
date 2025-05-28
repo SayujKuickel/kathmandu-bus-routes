@@ -10,14 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/postcss": "^4.1.7",
     "leaflet": "^1.9.4",
     "leaflet-routing-machine": "^3.2.12",
+    "postcss": "^8.5.3",
     "puppeteer": "^24.7.2",
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-leaflet": "^5.0.0-rc.2",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

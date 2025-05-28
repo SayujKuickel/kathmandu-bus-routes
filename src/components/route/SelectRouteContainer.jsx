@@ -2,7 +2,7 @@ import { busRoutes } from "@/data/busRoutes";
 import Button from "@/components/ui/Button";
 
 const SelectRouteContainer = ({
-  showRouteDetails,
+  showRouteStops,
   selectedRoute,
   onSelectedRoute,
   onShowRouteDetails,
@@ -10,12 +10,12 @@ const SelectRouteContainer = ({
   const routeKeys = Object.keys(busRoutes);
 
   function handleToggleRouteValue() {
-    console.log(showRouteDetails);
+    console.log(showRouteStops);
     onShowRouteDetails((prev) => !prev);
   }
 
   return (
-    <section className="bg-neutral-800 p-4 text-neutral-100 rounded-lg">
+    <section className="bg-surface p-4 text-on-surface rounded-lg">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-semibold ">Select Route</h3>
 
@@ -23,7 +23,7 @@ const SelectRouteContainer = ({
           <Button
             onClick={handleToggleRouteValue}
             className="text-sm"
-            title={showRouteDetails ? "Hide Stops" : "Show Stops"}
+            title={showRouteStops ? "Hide Stops" : "Show Stops"}
           />
         )}
       </div>
@@ -34,7 +34,7 @@ const SelectRouteContainer = ({
         }}
         name="routeSelect"
         id="routeSelect"
-        className="text-sm rounded-lg cursor-pointer block w-full p-2.5 bg-neutral-900 border-neutral-600 placeholder-neutral-400 text-text"
+        className="text-sm rounded-lg cursor-pointer block w-full p-2.5 bg-surface-2 hover:bg-surface-3 transition-all hover:text-on-primary text-on-surface"
       >
         <option value="">View All Routes</option>
 

@@ -8,7 +8,7 @@ const ViewRouteStops = ({ selectedRouteId }) => {
     return null;
 
   return (
-    <div className="bg-neutral-800 p-4 text-text rounded-lg">
+    <div className="bg-surface p-4 text-on-surface rounded-lg">
       <h4 className="text-lg font-semibold text-neutral-100  gap-2 mb-4">
         <span
           style={{ background: selectedRoute.lineColor }}

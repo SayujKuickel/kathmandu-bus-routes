@@ -25,7 +25,7 @@ function LayerToggleContainer({ mapTileType, onMapTileType }) {
       />
 
       {isShownLayerSelector && (
-        <div className="absolute bg-neutral-800 top-0 right-full -translate-x-2 text-text px-2 py-3 rounded-lg w-48">
+        <div className="absolute bg-surface top-0 right-full -translate-x-2 text-text px-2 py-3 rounded-lg w-48">
           <h3 className="text-lg mb-4">Select Theme</h3>
 
           <ul className="space-y-2">
@@ -35,7 +35,7 @@ function LayerToggleContainer({ mapTileType, onMapTileType }) {
               return (
                 <li
                   key={item}
-                  className={`bg-neutral-700/50 flex items-center gap-2 p-2 rounded-lg outline-2 cursor-pointer ${
+                  className={`bg-surface-1 flex items-center gap-2 p-2 rounded-lg outline-2 cursor-pointer ${
                     item === mapTileType
                       ? "outline-green-800"
                       : "outline-transparent"
@@ -47,12 +47,12 @@ function LayerToggleContainer({ mapTileType, onMapTileType }) {
                     src={itemData?.icon}
                     alt={item}
                   />
-
-                  <span className="capitalize text-sm">
-                    {itemData.id.includes("-")
-                      ? itemData.id.replace("-", " ")
-                      : itemData.id}
-                  </span>
+                  <div>
+                    <p className="capitalize text-sm font-bold -mb-1">
+                      {itemData?.mapTypeLabel}
+                    </p>
+                    <span className="capitalize text-xs">{itemData?.name}</span>
+                  </div>
                 </li>
               );
             })}
