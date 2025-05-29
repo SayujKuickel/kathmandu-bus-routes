@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
-import { mapTileOptions } from "@/constants/mapTileOptions";
+import { mapLayerOptions } from "@/constants/mapLayerOptions";
 
 function LayerToggleContainer({ mapTileType, onMapTileType }) {
   const [isShownLayerSelector, setIsShownLayerSelector] = useState(false);
@@ -28,8 +28,8 @@ function LayerToggleContainer({ mapTileType, onMapTileType }) {
           <h3 className="text-lg mb-4">Select Theme</h3>
 
           <ul className="space-y-2">
-            {Object.keys(mapTileOptions).map((item) => {
-              const itemData = mapTileOptions[item];
+            {Object.keys(mapLayerOptions).map((item) => {
+              const itemData = mapLayerOptions[item];
 
               return (
                 <li
@@ -44,8 +44,9 @@ function LayerToggleContainer({ mapTileType, onMapTileType }) {
                   <img
                     className={`w-12 rounded-lg aspect-square object-cover`}
                     src={itemData?.icon}
-                    alt={item}
+                    alt={itemData?.name}
                   />
+
                   <div>
                     <p className="capitalize text-sm font-bold -mb-1">
                       {itemData?.mapTypeLabel}

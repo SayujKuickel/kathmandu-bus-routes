@@ -20,7 +20,7 @@ const BusStop = ({ position, stopName, lineColor = "#ff0000" }) => {
     iconSize: [24, 24],
     iconAnchor: [12, 24],
     popupAnchor: [0, -24],
-    html: `<i style="background-color: ${lineColor}88; outline-color: ${lineColor}" class="w-6 aspect-square rounded-full text-white outline-2 grid place-items-center fi fi-rr-bus-alt"></i>`,
+    html: `<i style="background-color: ${lineColor}; outline-color: ${lineColor}" class="w-6 aspect-square rounded-full text-white outline-2 grid place-items-center fi fi-rr-bus-alt"></i>`,
   });
 
   return zoom > 15 ? (

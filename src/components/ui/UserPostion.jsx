@@ -1,6 +1,6 @@
 import L from "leaflet";
 import { useEffect } from "react";
-import { Marker, useMap } from "react-leaflet";
+import { Marker, Popup, useMap } from "react-leaflet";
 import { DEFAULT_FLY_TO_POSITION_ZOOM } from "@/constants/mapSettings";
 
 function UserPostion({ position }) {
@@ -15,14 +15,13 @@ function UserPostion({ position }) {
     iconSize: [24, 24],
     iconAnchor: [12, 24],
     popupAnchor: [0, -24],
-    html: `
-      <i
-        class="w-8 aspect-square rounded-full bg-blue-400 outline-blue-800 text-white outline-2 grid place-items-center fi fi-rr-marker"
-        style="background-color: #60a5fa; outline-color: #1e40af;"
-      ></i>
-    `,
+    html: `<i class="fi fi-rr-marker grid place-items-center text-xl w-8 aspect-square bg-red-100 rounded-2xl text-on-surface outline-2" style="background-color: #024885bb; outline-color: #024885"></i>`,
   });
-  return <Marker position={position} icon={customMarker} />;
+  return (
+    <Marker position={position} icon={customMarker}>
+      <Popup>You are here!</Popup>
+    </Marker>
+  );
 }
 
 export default UserPostion;

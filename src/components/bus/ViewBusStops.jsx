@@ -15,7 +15,7 @@ const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
 
   return (
     <>
-      <ul className={`overflow-y-scroll scrollbar-sa space-y-2`}>
+      <ul className={`overflow-y-scroll scrollbar-sa flex flex-col gap-4`}>
         {viewArray.map((item, index) => {
           const stop = busStops.find((el) => el.id === item);
 

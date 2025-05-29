@@ -10,7 +10,7 @@ const ViewAllBusRoutes = () => {
       <div className="container-small mx-auto px-5 my-8">
         <h1 className="heading-1 font-bold mb-4">All Bus Routes</h1>
 
-        <ul className="space-y-4">
+        <ul className="flex flex-col gap-4">
           {Object.keys(busRoutes).map((routeId) => {
             const route = busRoutes[routeId];
 

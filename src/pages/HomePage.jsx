@@ -8,9 +8,10 @@ import {
   MAP_CENTER,
   MAX_ZOOM_OUT,
 } from "@/constants/mapSettings";
-import { DEFAULT_MAP_TILE } from "@/constants/mapTileOptions";
+import { DEFAULT_MAP_TILE } from "@/constants/mapLayerOptions";
 import { useEffect, useState } from "react";
 import RightSidebarWrapper from "@/components/sidebar/RightSidebarWrapper";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [mapTileType, setMapTileType] = useState(DEFAULT_MAP_TILE);
@@ -34,6 +35,11 @@ export default function HomePage() {
   function handleLocateUser() {
     startLocationSearch();
 
+    if (isSearchingLocation) {
+      console.warn("[W] Alerady Searcing for location.");
+      return;
+    }
+
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         setUserLocation([coords.latitude, coords.longitude]);
@@ -41,7 +47,9 @@ export default function HomePage() {
       (err) => {
         console.error("Geolocation error:", err);
         stopLocationSearch();
-        alert("Failed to get your location. Please enable location services.");
+        console.warn(
+          "Failed to get your location. Please enable location services."
+        );
       },
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
     );
@@ -49,8 +57,11 @@ export default function HomePage() {
 
   return (
     <>
-      <span className="hidden lg:block fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-surface-3 text-on-surface text-center px-2 py-1 rounded-lg">
-        This site is under development. Data may be incomplete/wrong.
+      <span className="fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-surface-3 text-on-surface/70 text-center px-2 py-1 rounded-lg ">
+        This site is under development. Data may be incomplete.{" "}
+        <Link className="text-on-surface" to={"/contact"}>
+          Contact
+        </Link>
       </span>
 
       <LeftSidebarWrapper

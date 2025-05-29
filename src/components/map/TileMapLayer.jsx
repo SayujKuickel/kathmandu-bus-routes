@@ -1,10 +1,10 @@
-import { DEFAULT_MAP_TILE, mapTileOptions } from "@/constants/mapTileOptions";
+import { DEFAULT_MAP_TILE, mapLayerOptions } from "@/constants/mapLayerOptions";
 import { TileLayer } from "react-leaflet";
 
 function TileMapLayer({ mapTileType }) {
-  const mapOverlayDetails = mapTileOptions[mapTileType]
-    ? mapTileOptions[mapTileType]
-    : mapTileOptions[DEFAULT_MAP_TILE];
+  const mapOverlayDetails = mapLayerOptions[mapTileType]
+    ? mapLayerOptions[mapTileType]
+    : mapLayerOptions[DEFAULT_MAP_TILE];
 
   return (
     <TileLayer

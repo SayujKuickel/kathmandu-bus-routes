@@ -1,25 +1,41 @@
 import { Link } from "react-router-dom";
+import Button from "../ui/Button";
+import { useState } from "react";
 
 const routes = [
   {
     name: "Map",
     path: "/",
+    icon: "fi fi-rr-map",
   },
   {
     name: "Bus Routes",
     path: "/bus",
+    icon: "fi fi-rr-map-location-track",
   },
   {
     name: "About",
     path: "https://sayuj.com.np",
+    icon: "fi fi-rr-user",
     newTab: true,
+  },
+  {
+    name: "Contact",
+    path: "/contact",
+    icon: "fi fi-rr-comment-alt",
   },
 ];
 
 const Header = () => {
+  const [isMobileMenuShown, setIsMobileMenuShown] = useState(false);
+
+  function handleMobileMenuToggle() {
+    setIsMobileMenuShown((prev) => !prev);
+  }
+
   return (
-    <header className="bg-surface-1">
-      <div className="container mx-auto px-5 py-4 flex items-center justify-between">
+    <header className="bg-surface-1 relative">
+      <div className="container mx-auto px-5 py-4 flex items-center justify-between relative z-[99999]">
         <div className="flex items-center gap-2">
           <Link to={"/"} className="block w-14 aspect-square">
             <img src="/web-app-manifest-512x512.png" alt="logo" />
@@ -30,7 +46,18 @@ const Header = () => {
           </p>
         </div>
 
-        <ul className="flex items-center gap-2">
+        <div className="block md:hidden">
+          <Button
+            onClick={handleMobileMenuToggle}
+            iconStyle={
+              isMobileMenuShown
+                ? "fi fi-rr-cross-small"
+                : "fi fi-rr-menu-burger"
+            }
+          />
+        </div>
+
+        <ul className="flex items-center gap-2 hidden md:block md:flex">
           {routes.map((route) => (
             <li key={route.path}>
               <Link
@@ -45,6 +72,27 @@ const Header = () => {
           ))}
         </ul>
       </div>
+
+      {isMobileMenuShown && (
+        <aside className="block md:hidden fixed top-0 left-0 z-[99998] w-screen h-screen bg-background p-4 pt-28">
+          <ul className="flex flex-col gap-2">
+            {routes.map((route) => (
+              <li key={route.path}>
+                <Link
+                  key={route.path}
+                  to={route.path}
+                  target={route.newTab && "_blank"}
+                  className="block bg-surface border border-on-surface/25 px-2 py-3 rounded-lg transition-all flex items-center gap-2"
+                >
+                  <i className={`flex ${route?.icon}`} />
+
+                  {route.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
     </header>
   );
 };

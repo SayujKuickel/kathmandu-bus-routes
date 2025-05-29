@@ -22,7 +22,7 @@ const ViewRouteStops = ({ selectedRouteId, sidebarMode = true }) => {
       <ul className={`${sidebarMode && "h-32 md:h-48"} relative`}>
         <div className="absolute left-[0px] bottom-[0px] z-10 w-full h-6 bg-gradient-to-t from-background to-transparent"></div>
 
-        <section className="overflow-y-scroll scrollbar-sa h-full flex flex-col gap-2">
+        <section className="overflow-y-scroll scrollbar-sa h-full flex flex-col gap-2 pb-8">
           {selectedRoute?.stopIds?.map((item, index) => {
             const stop = busStops.find((el) => el.id === item);
 
