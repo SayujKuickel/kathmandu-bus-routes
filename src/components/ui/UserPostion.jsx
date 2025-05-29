@@ -21,11 +21,7 @@ function UserPostion({ position, DEFAULT_ZOOM }) {
       ></i>
     `,
   });
-  return (
-    <div className="fixed top-4 right-4">
-      <Marker position={position} icon={customMarker} />
-    </div>
-  );
+  return <Marker position={position} icon={customMarker} />;
 }
 
 export default UserPostion;

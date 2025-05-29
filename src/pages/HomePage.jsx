@@ -20,7 +20,6 @@ export default function HomePage() {
     startLocationSearch,
     stopLocationSearch,
   } = useUserLocation();
-
   const { selectedRoute, setSelectedRoute } = useHandleRoute();
 
   const [mapTileType, setMapTileType] = useState(
@@ -45,9 +44,9 @@ export default function HomePage() {
 
   return (
     <>
-      {/* <span className="fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-neutral-800 text-text text-center px-2 py-1 rounded-lg shadow-amber-300/25 shadow-lg">
+      <span className="hidden md:block fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-surface-3 text-on-surface text-center px-2 py-1 rounded-lg">
         This site is under development. Data may be incomplete/wrong.
-      </span> */}
+      </span>
 
       <LeftSidebarWrapper
         selectedRoute={selectedRoute}
@@ -68,7 +67,7 @@ export default function HomePage() {
         userLocation={userLocation}
         selectedRoute={selectedRoute}
         mapTileType={mapTileType}
-        onMapTileType={setMapTileType}
+        setMapTileType={setMapTileType}
       />
     </>
   );

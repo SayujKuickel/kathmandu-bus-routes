@@ -50,14 +50,15 @@ const ViewBusRoute = () => {
             </Link>
           </div>
 
-          <p className="mb-4">
+          <div className="mb-4">
             {route?.timeMin && (
               <p className="flex items-center gap-2">
-                <i className="fi fi-rr-clock-three flex"></i> {route?.timeMin}{" "}
+                <i className="fi fi-rr-clock-three flex"></i>{" "}
+                <span> {route?.timeMin} </span>
                 mins
               </p>
             )}
-          </p>
+          </div>
 
           <ViewBusStops viewAll={true} selectedRouteId={id} />
         </div>

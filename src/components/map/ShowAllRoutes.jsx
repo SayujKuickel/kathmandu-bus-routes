@@ -1,12 +1,13 @@
 import BusRoute from "@/components/map/BusRoute";
 import { busRoutes } from "@/data/busRoutes";
 
-function ShowAllRoutes() {
+function ShowAllRoutes({ fitToScreen }) {
   const routeIds = Object.keys(busRoutes).filter((item) => item !== "");
+
   return (
     <>
       {routeIds.map((route) => (
-        <BusRoute key={route} routeId={route} />
+        <BusRoute fitToScreen={fitToScreen} key={route} routeId={route} />
       ))}
     </>
   );

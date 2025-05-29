@@ -8,7 +8,7 @@ import {
 } from "@/constants/mapSettings";
 import BusRoute from "@/components/map/BusRoute";
 import ShowAllRoutes from "@/components/map/ShowAllRoutes";
-import { DEFAULT_MAP_TILE, mapTileOptions } from "@/constants/mapTileOptions";
+import TileMapLayer from "@/components/map/TileMapLayer";
 
 const BaseMap = ({
   MAP_CENTER,
@@ -17,7 +17,8 @@ const BaseMap = ({
   userLocation,
   selectedRoute,
   mapTileType,
-  onMapTileType,
+  setMap,
+  map,
 }) => {
   return (
     <div className="w-screen h-screen overflow-hidden">
@@ -31,43 +32,29 @@ const BaseMap = ({
         }
         maxBoundsViscosity={1.0}
         style={{ height: "100%", width: "100%" }}
+        whenCreated={setMap}
       >
-        <TileMapLayer mapTileType={mapTileType} onMapTileType={onMapTileType} />
+        <TileMapLayer mapTileType={mapTileType} />
 
         {userLocation && (
           <UserPostion
-            key={Date.now()}
+            map={map}
             position={userLocation}
             DEFAULT_ZOOM={DEFAULT_ZOOM}
           />
         )}
+
         {selectedRoute ? (
-          <BusRoute routeId={selectedRoute} />
+          <BusRoute routeId={selectedRoute} fitToScreen={true} />
         ) : (
-          <ShowAllRoutes />
+          <ShowAllRoutes fitToScreen={false} />
         )}
 
         <ZoomControl position="topleft" />
-
         <ZoomControl position="bottomleft" />
       </MapContainer>
     </div>
   );
 };
-
-function TileMapLayer({ mapTileType }) {
-  const mapOverlayDetails = mapTileOptions[mapTileType]
-    ? mapTileOptions[mapTileType]
-    : mapTileOptions[DEFAULT_MAP_TILE];
-
-  return (
-    <>
-      <TileLayer
-        attribution={mapOverlayDetails.attribution}
-        url={mapOverlayDetails.url}
-      />
-    </>
-  );
-}
 
 export default BaseMap;

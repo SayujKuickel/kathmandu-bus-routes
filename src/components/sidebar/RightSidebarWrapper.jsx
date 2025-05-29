@@ -9,8 +9,8 @@ const RightSidebarWrapper = ({
   onMapTileType,
 }) => {
   return (
-    <section className="fixed top-4 right-4 w-fit z-[99999]">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <aside className="fixed top-4 right-4 w-fit z-[99999]">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <Link to={"/bus"}>
           <Button
             iconStyle={`text-xl fi fi-rr-bus-alt`}
@@ -39,10 +39,8 @@ const RightSidebarWrapper = ({
           }`}
           aria-label="Locate me"
         />
-
-        {/*  */}
-      </div>
-    </section>
+      </section>
+    </aside>
   );
 };
 

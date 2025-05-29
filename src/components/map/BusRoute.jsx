@@ -6,7 +6,7 @@ import { busRoutes } from "@/data/busRoutes";
 import BusStop from "@/components/map/BusStop";
 import { busStops } from "@/data/busStops";
 
-const BusRoute = ({ routeId }) => {
+const BusRoute = ({ routeId, fitToScreen }) => {
   const map = useMap();
 
   const [route, setRoute] = useState(null);
@@ -34,13 +34,13 @@ const BusRoute = ({ routeId }) => {
     const routingControl = L.routing.control({
       waypoints: waypoints.map((point) => L.latLng(point.pos)),
       routeWhileDragging: false,
-      fitSelectedRoutes: false,
+      fitSelectedRoutes: fitToScreen,
       addWaypoints: false,
       draggableWaypoints: false,
       show: false,
       createMarker: () => null,
       lineOptions: {
-        styles: [{ color: route.lineColor, weight: 5, opacity: 0.8 }],
+        styles: [{ color: route.lineColor, weight: 3, opacity: 0.75 }],
       },
       containerClassName: "hidden",
     });
@@ -50,7 +50,7 @@ const BusRoute = ({ routeId }) => {
     return () => {
       routingControl.remove();
     };
-  }, [map, waypoints, route]);
+  }, [map, waypoints, fitToScreen, route]);
 
   if (!waypoints || !route) return null;
 

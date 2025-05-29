@@ -11,9 +11,7 @@ const Contact = () => {
           src="https://docs.google.com/forms/d/e/1FAIpQLScK5KYuMGoyg-t-FNYI85wHtpCcYiwb67RLtX86kPiRY1c39Q/viewform?embedded=true"
           width="100%"
           height="100%"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
+          className="bg-text rounded-2xl"
         >
           Loading…
         </iframe>
