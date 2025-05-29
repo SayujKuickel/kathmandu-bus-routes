@@ -29,8 +29,15 @@ const BusRoute = ({ routeId, fitToScreen }) => {
   }, [routeId]);
 
   useEffect(() => {
-    if (!route || !route.stopIds.length) return;
-
+    if (
+      !map ||
+      !route ||
+      !route.stopIds.length ||
+      waypoints.length !== route.stopIds.length ||
+      waypoints.some((w) => !w || !w.pos)
+    ) {
+      return;
+    }
     const routingControl = L.routing.control({
       waypoints: waypoints.map((point) => L.latLng(point.pos)),
       routeWhileDragging: false,

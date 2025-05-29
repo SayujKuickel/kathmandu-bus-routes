@@ -9,10 +9,12 @@ import {
   MAX_ZOOM_OUT,
 } from "@/constants/mapSettings";
 import { DEFAULT_MAP_TILE } from "@/constants/mapTileOptions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RightSidebarWrapper from "@/components/sidebar/RightSidebarWrapper";
 
 export default function HomePage() {
+  const [mapTileType, setMapTileType] = useState(DEFAULT_MAP_TILE);
+
   const {
     userLocation,
     isSearchingLocation,
@@ -22,9 +24,12 @@ export default function HomePage() {
   } = useUserLocation();
   const { selectedRoute, setSelectedRoute } = useHandleRoute();
 
-  const [mapTileType, setMapTileType] = useState(
-    localStorage.getItem("default-tile-layer") || DEFAULT_MAP_TILE
-  );
+  useEffect(() => {
+    const savedTile = localStorage.getItem("default-tile-layer");
+    if (savedTile) {
+      setMapTileType(savedTile);
+    }
+  }, []);
 
   function handleLocateUser() {
     startLocationSearch();
@@ -44,7 +49,7 @@ export default function HomePage() {
 
   return (
     <>
-      <span className="hidden md:block fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-surface-3 text-on-surface text-center px-2 py-1 rounded-lg">
+      <span className="hidden lg:block fixed top-4 -translate-x-1/2 left-1/2 z-[99999] text-[9px] bg-surface-3 text-on-surface text-center px-2 py-1 rounded-lg">
         This site is under development. Data may be incomplete/wrong.
       </span>
 

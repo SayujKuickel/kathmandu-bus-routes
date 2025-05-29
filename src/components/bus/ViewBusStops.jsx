@@ -1,6 +1,7 @@
 import { busRoutes } from "@/data/busRoutes";
 import { busStops } from "@/data/busStops";
 import { Link } from "react-router-dom";
+import Button from "../ui/Button";
 
 const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
   const selectedRoute = busRoutes[selectedRouteId];
@@ -37,11 +38,17 @@ const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
                 )}
               </i>
 
-              <i className=""></i>
-
-              <span className="flex-1 px-2 py-2.5 bg-surface-1/25 border border-neutral-100/20 rounded-lg text-neutral-100/80 whitespace-nowrap overflow-scroll no-scrollbar">
+              <p className="flex-1 flex items-center gap-1  justify-between ml-2 px-2 py-2.5 bg-surface-1/25 border border-neutral-100/20 rounded-lg text-neutral-100/80 whitespace-nowrap overflow-scroll no-scrollbar">
                 {stop.name}
-              </span>
+
+                <Link to={`/?stop=${stop?.id}`}>
+                  <Button
+                    title={<span className="hidden md:block">View</span>}
+                    className={"text-xs md:text-sm"}
+                    iconStyle={"fi fi-rr-land-layer-location"}
+                  />
+                </Link>
+              </p>
             </li>
           );
         })}

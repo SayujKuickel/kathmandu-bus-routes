@@ -32,7 +32,7 @@ const Header = () => {
 
         <ul className="flex items-center gap-2">
           {routes.map((route) => (
-            <li>
+            <li key={route.path}>
               <Link
                 key={route.path}
                 to={route.path}

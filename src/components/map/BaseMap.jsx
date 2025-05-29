@@ -9,6 +9,7 @@ import {
 import BusRoute from "@/components/map/BusRoute";
 import ShowAllRoutes from "@/components/map/ShowAllRoutes";
 import TileMapLayer from "@/components/map/TileMapLayer";
+import ShowSelectedStop from "@/components/stops/ShowSelectedStop";
 
 const BaseMap = ({
   MAP_CENTER,
@@ -36,19 +37,15 @@ const BaseMap = ({
       >
         <TileMapLayer mapTileType={mapTileType} />
 
-        {userLocation && (
-          <UserPostion
-            map={map}
-            position={userLocation}
-            DEFAULT_ZOOM={DEFAULT_ZOOM}
-          />
-        )}
+        {userLocation && <UserPostion map={map} position={userLocation} />}
 
         {selectedRoute ? (
           <BusRoute routeId={selectedRoute} fitToScreen={true} />
         ) : (
           <ShowAllRoutes fitToScreen={false} />
         )}
+
+        <ShowSelectedStop />
 
         <ZoomControl position="topleft" />
         <ZoomControl position="bottomleft" />

@@ -6,6 +6,7 @@ import { busRoutes } from "@/data/busRoutes";
 import { useEffect, useState } from "react";
 import Footer from "@/components/global/Footer";
 import NotFound from "../NotFound";
+import PageLayout from "../../layout/PageLayout";
 
 const ViewBusRoute = () => {
   const { id } = useParams();
@@ -26,9 +27,7 @@ const ViewBusRoute = () => {
   if (!route) return <NotFound />;
 
   return (
-    <main className="bg-background text-text min-h-screen">
-      <Header />
-
+    <PageLayout>
       <section className="container-small mx-auto px-5 my-8">
         <div className="p-4 bg-surface rounded-lg  border border-on-primary/25">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
@@ -63,8 +62,7 @@ const ViewBusRoute = () => {
           <ViewBusStops viewAll={true} selectedRouteId={id} />
         </div>
       </section>
-      <Footer />
-    </main>
+    </PageLayout>
   );
 };
 

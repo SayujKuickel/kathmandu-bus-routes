@@ -1,13 +1,14 @@
 import L from "leaflet";
 import { useEffect } from "react";
 import { Marker, useMap } from "react-leaflet";
+import { DEFAULT_FLY_TO_POSITION_ZOOM } from "@/constants/mapSettings";
 
-function UserPostion({ position, DEFAULT_ZOOM }) {
+function UserPostion({ position }) {
   const map = useMap();
 
   useEffect(() => {
-    map.flyTo(position, 18);
-  }, [DEFAULT_ZOOM, position, map]);
+    map.flyTo(position, DEFAULT_FLY_TO_POSITION_ZOOM);
+  }, [position, map]);
 
   const customMarker = L.divIcon({
     className: "custom-marker",

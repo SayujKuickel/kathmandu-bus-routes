@@ -14,7 +14,7 @@ const SelectRouteContainer = ({
   }
 
   return (
-    <section className="bg-surface p-4 text-on-surface rounded-lg">
+    <section className="bg-background p-4 text-on-surface rounded-lg">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-semibold ">Select Route</h3>
 

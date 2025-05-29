@@ -1,15 +1,12 @@
-import Header from "@/components/global/Header";
 import ViewBusStops from "@/components/bus/ViewBusStops";
 import { busRoutes } from "@/data/busRoutes";
 import Button from "@/components/ui/Button";
 import { Link } from "react-router-dom";
-import Footer from "@/components/global/Footer";
+import PageLayout from "@/layout/PageLayout";
 
 const ViewAllBusRoutes = () => {
   return (
-    <main className="bg-background text-text min-h-screen">
-      <Header />
-
+    <PageLayout>
       <div className="container-small mx-auto px-5 my-8">
         <h1 className="heading-1 font-bold mb-4">All Bus Routes</h1>
 
@@ -17,7 +14,7 @@ const ViewAllBusRoutes = () => {
           {Object.keys(busRoutes).map((routeId) => {
             const route = busRoutes[routeId];
 
-            if (route.name === "") return null;
+            if (route.name === "" || routeId === "") return null;
 
             return (
               <li
@@ -40,7 +37,7 @@ const ViewAllBusRoutes = () => {
                 <div className="flex items-center gap-2">
                   <Link to={`/bus/${routeId}`}>
                     <Button
-                      className="px-4 border border-on-surface/25 "
+                      className="px-4"
                       title="View all Stops"
                       iconStyle="fi fi-rr-eye"
                     />
@@ -59,9 +56,7 @@ const ViewAllBusRoutes = () => {
           })}
         </ul>
       </div>
-
-      <Footer />
-    </main>
+    </PageLayout>
   );
 };
 
