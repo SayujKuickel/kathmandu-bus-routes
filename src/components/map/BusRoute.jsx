@@ -47,7 +47,7 @@ const BusRoute = ({ routeId, fitToScreen }) => {
       show: false,
       createMarker: () => null,
       lineOptions: {
-        styles: [{ color: route.lineColor, weight: 3, opacity: 0.75 }],
+        styles: [{ color: route.lineColor, weight: 5, opacity: 0.75 }],
       },
       containerClassName: "hidden",
     });

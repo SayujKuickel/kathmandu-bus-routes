@@ -3,11 +3,7 @@ import BaseMap from "@/components/map/BaseMap";
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { useHandleRoute } from "@/hooks/useHandleRoute";
 import LeftSidebarWrapper from "@/components/sidebar/LeftSidebarWrapper";
-import {
-  DEFAULT_ZOOM,
-  MAP_CENTER,
-  MAX_ZOOM_OUT,
-} from "@/constants/mapSettings";
+
 import { DEFAULT_MAP_TILE } from "@/constants/mapLayerOptions";
 import { useEffect, useState } from "react";
 import RightSidebarWrapper from "@/components/sidebar/RightSidebarWrapper";
@@ -77,9 +73,6 @@ export default function HomePage() {
       />
 
       <BaseMap
-        MAP_CENTER={MAP_CENTER}
-        DEFAULT_ZOOM={DEFAULT_ZOOM}
-        MAX_ZOOM_OUT={MAX_ZOOM_OUT}
         userLocation={userLocation}
         selectedRoute={selectedRoute}
         mapTileType={mapTileType}

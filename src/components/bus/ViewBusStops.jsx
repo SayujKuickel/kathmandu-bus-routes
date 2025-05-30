@@ -2,22 +2,76 @@ import { busRoutes } from "@/data/busRoutes";
 import { busStops } from "@/data/busStops";
 import { Link } from "react-router-dom";
 import Button from "../ui/Button";
+import { useState, useEffect } from "react";
 
 const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
-  const selectedRoute = busRoutes[selectedRouteId];
+  const [error, setError] = useState(null);
+  const [selectedRoute, setSelectedRoute] = useState(null);
 
-  if (!selectedRoute || selectedRouteId === "" || selectedRoute.name === "")
+  useEffect(() => {
+    try {
+      if (!selectedRouteId) {
+        setSelectedRoute(null);
+        setError("No route selected.");
+        return;
+      }
+
+      const route = busRoutes[selectedRouteId];
+
+      console.log(route);
+
+      if (!route || !route.name) {
+        setSelectedRoute(null);
+        setError("Selected route not found or invalid.");
+        return;
+      }
+
+      setSelectedRoute(route);
+      setError(null);
+    } catch (err) {
+      setSelectedRoute(null);
+      setError("An unexpected error occurred.");
+      console.error(err);
+    }
+  }, [selectedRouteId]);
+
+  if (error) {
+    return (
+      <div className="text-red-500 p-2 border border-red-400 rounded bg-red-50">
+        {error}
+      </div>
+    );
+  }
+
+  if (!selectedRoute) {
     return null;
+  }
 
   const viewArray = !viewAll
     ? selectedRoute?.stopIds?.slice(0, 5)
     : selectedRoute?.stopIds;
+
+  if (!viewArray || viewArray.length === 0) {
+    return (
+      <div className="text-yellow-700 p-2 border border-yellow-400 rounded bg-yellow-50">
+        No bus stops available for this route.
+      </div>
+    );
+  }
 
   return (
     <>
       <ul className={`overflow-y-scroll scrollbar-sa flex flex-col gap-4`}>
         {viewArray.map((item, index) => {
           const stop = busStops.find((el) => el.id === item);
+
+          if (!stop) {
+            return (
+              <li key={item} className="text-red-500">
+                Bus stop data missing for ID: {item}
+              </li>
+            );
+          }
 
           return (
             <li

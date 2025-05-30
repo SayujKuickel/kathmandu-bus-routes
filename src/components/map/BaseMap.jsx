@@ -1,5 +1,5 @@
 import { LatLngBounds } from "leaflet";
-import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
+import { MapContainer, ZoomControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import UserPostion from "@/components/ui/UserPostion";
 import {
@@ -10,17 +10,13 @@ import BusRoute from "@/components/map/BusRoute";
 import ShowAllRoutes from "@/components/map/ShowAllRoutes";
 import TileMapLayer from "@/components/map/TileMapLayer";
 import ShowSelectedStop from "@/components/stops/ShowSelectedStop";
-
-const BaseMap = ({
-  MAP_CENTER,
+import {
   DEFAULT_ZOOM,
+  MAP_CENTER,
   MAX_ZOOM_OUT,
-  userLocation,
-  selectedRoute,
-  mapTileType,
-  setMap,
-  map,
-}) => {
+} from "@/constants/mapSettings";
+
+const BaseMap = ({ userLocation, selectedRoute, mapTileType, setMap, map }) => {
   return (
     <div className="w-screen h-screen overflow-hidden">
       <MapContainer
