@@ -1,5 +1,6 @@
 import { busRoutes } from "@/data/busRoutes";
 import Button from "@/components/ui/Button";
+import SelectMenu from "../ui/SelectMenu";
 
 const SelectRouteContainer = ({
   showRouteStops,
@@ -7,7 +8,12 @@ const SelectRouteContainer = ({
   onSelectedRoute,
   onShowRouteDetails,
 }) => {
-  const routeKeys = Object.keys(busRoutes);
+  const routeDetails = Object.keys(busRoutes)
+    ?.filter((route) => route !== "")
+    ?.map((route) => {
+      const item = busRoutes[route];
+      return { key: route, value: item.name, lineColor: item.lineColor };
+    });
 
   function handleToggleRouteValue() {
     onShowRouteDetails((prev) => !prev);
@@ -28,7 +34,13 @@ const SelectRouteContainer = ({
         )}
       </div>
 
-      <select
+      <SelectMenu
+        selectedRoute={selectedRoute}
+        onSelectedRoute={onSelectedRoute}
+        options={routeDetails}
+      />
+
+      {/* <select
         onChange={(e) => {
           onSelectedRoute(e.target.value);
         }}
@@ -38,14 +50,14 @@ const SelectRouteContainer = ({
       >
         <option value="">View All Routes</option>
 
-        {routeKeys
+         {routeKeys
           .filter((key) => key !== "")
           .map((item, key) => (
             <option key={key} value={item} selected={selectedRoute === item}>
               {busRoutes[item].name}
             </option>
-          ))}
-      </select>
+          ))} 
+      </select> */}
     </section>
   );
 };

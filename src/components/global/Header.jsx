@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <header className="bg-surface-1 relative">
-      <div className="container mx-auto px-5 py-4 flex items-center justify-between relative z-[99999]">
+      <div className="container mx-auto px-5 py-4 flex items-center justify-between relative z-[99998]">
         <div className="flex items-center gap-2">
           <Link to={"/"} className="block w-14 aspect-square">
             <img src="/web-app-manifest-512x512.png" alt="logo" />
@@ -74,7 +74,30 @@ const Header = () => {
       </div>
 
       {isMobileMenuShown && (
-        <aside className="block md:hidden fixed top-0 left-0 z-[99998] w-screen h-screen bg-background p-4 pt-28">
+        <aside className="block md:hidden fixed top-0 left-0 z-[99999] w-screen h-screen bg-background p-4 ">
+          <nav className="flex items-center gap-2 justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <Link to={"/"} className="block w-14 aspect-square">
+                <img src="/web-app-manifest-512x512.png" alt="logo" />
+              </Link>
+              <p className="hidden md:block">
+                <span className="block text-xl font-bold -mb-1">Kathmandu</span>
+                <span className="block">Bus Routes</span>
+              </p>
+            </div>
+
+            <div className="block md:hidden">
+              <Button
+                onClick={handleMobileMenuToggle}
+                iconStyle={
+                  isMobileMenuShown
+                    ? "fi fi-rr-cross-small"
+                    : "fi fi-rr-menu-burger"
+                }
+              />
+            </div>
+          </nav>
+
           <ul className="flex flex-col gap-2">
             {routes.map((route) => (
               <li key={route.path}>

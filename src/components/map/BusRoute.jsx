@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import { busRoutes } from "@/data/busRoutes";
 import BusStop from "@/components/map/BusStop";
 import { busStops } from "@/data/busStops";
+import { useNavigate } from "react-router-dom";
 
 const BusRoute = ({ routeId, fitToScreen }) => {
   const map = useMap();
-
+  const navigate = useNavigate();
   const [route, setRoute] = useState(null);
   const [waypoints, setWayPoints] = useState([]);
 
@@ -17,6 +18,7 @@ const BusRoute = ({ routeId, fitToScreen }) => {
 
     if (!route) {
       console.warn(`no route found with id: ${routeId}`);
+      navigate("/");
       return;
     }
 
@@ -26,7 +28,7 @@ const BusRoute = ({ routeId, fitToScreen }) => {
 
     setRoute(route);
     setWayPoints(waypoints);
-  }, [routeId]);
+  }, [routeId, navigate]);
 
   useEffect(() => {
     if (

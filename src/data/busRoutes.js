@@ -53,7 +53,6 @@ export const busRoutes = {
       "ratnapark",
     ],
   },
-
   "kalanki-to-minbhawan": {
     name: "Kalanki to Minbhawan",
     lineColor: "#C06A14",

@@ -7,9 +7,13 @@ import LeftSidebarWrapper from "@/components/sidebar/LeftSidebarWrapper";
 import { DEFAULT_MAP_TILE } from "@/constants/mapLayerOptions";
 import { useEffect, useState } from "react";
 import RightSidebarWrapper from "@/components/sidebar/RightSidebarWrapper";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { busRoutes } from "@/data/busRoutes";
 
 export default function HomePage() {
+  const [searchParams] = useSearchParams();
+  const route = searchParams.get("route");
+
   const [mapTileType, setMapTileType] = useState(DEFAULT_MAP_TILE);
 
   const {
@@ -50,6 +54,17 @@ export default function HomePage() {
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
     );
   }
+
+  useEffect(() => {
+    const isValidRoute = !!Object.keys(busRoutes).find((el) => el === route);
+
+    if (!isValidRoute) {
+      console.warn("[W] Invalid route id in url");
+      return;
+    }
+
+    setSelectedRoute(route);
+  }, [route]);
 
   return (
     <>

@@ -15,8 +15,22 @@ import {
   MAP_CENTER,
   MAX_ZOOM_OUT,
 } from "@/constants/mapSettings";
+import { useSearchParams } from "react-router-dom";
+
+function checkIfNeedsTofit(searchParams) {
+  const routeExists = searchParams.get("route");
+  const stopExists = searchParams.get("stop");
+
+  if (routeExists && stopExists) return false;
+
+  return true;
+}
 
 const BaseMap = ({ userLocation, selectedRoute, mapTileType, setMap, map }) => {
+  const [searchParams] = useSearchParams();
+
+  const needsTofit = checkIfNeedsTofit(searchParams);
+
   return (
     <div className="w-screen h-screen overflow-hidden">
       <MapContainer
@@ -36,7 +50,7 @@ const BaseMap = ({ userLocation, selectedRoute, mapTileType, setMap, map }) => {
         {userLocation && <UserPostion map={map} position={userLocation} />}
 
         {selectedRoute ? (
-          <BusRoute routeId={selectedRoute} fitToScreen={true} />
+          <BusRoute routeId={selectedRoute} fitToScreen={needsTofit} />
         ) : (
           <ShowAllRoutes fitToScreen={false} />
         )}
