@@ -18,8 +18,6 @@ const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
 
       const route = busRoutes[selectedRouteId];
 
-      console.log(route);
-
       if (!route || !route.name) {
         setSelectedRoute(null);
         setError("Selected route not found or invalid.");
@@ -86,16 +84,16 @@ const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
                 } w-3 flex text-xs relative`}
               >
                 {index > 0 && (
-                  <span className="absolute left-1/2 -translate-x-1/2 translate-y-[-220%]">
+                  <span className="absolute left-1/2 -translate-x-1/2 translate-y-[-250%]">
                     <i className="fi fi-rr-menu-dots-vertical flex text-xs"></i>
                   </span>
                 )}
               </i>
 
-              <p className="flex-1 flex items-center gap-1  justify-between ml-2 px-2 py-2.5 bg-surface-1/25 border border-neutral-100/20 rounded-lg text-neutral-100/80 whitespace-nowrap overflow-scroll no-scrollbar">
+              <p className="flex-1 flex items-center gap-1 justify-between ml-2 px-2 py-1.5 bg-surface-1/25 border border-neutral-100/20 rounded-lg text-neutral-100/80 whitespace-nowrap overflow-scroll no-scrollbar">
                 {stop.name}
 
-                <Link to={`/?stop=${stop?.id}`}>
+                <Link to={`/?stop=${stop?.id}&route=${selectedRouteId}`}>
                   <Button
                     title={<span className="hidden md:block">View</span>}
                     className={"text-xs md:text-sm"}

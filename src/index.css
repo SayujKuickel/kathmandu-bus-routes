@@ -38,6 +38,9 @@
   --s5: calc(16px + var(--ratio));
   --s6: calc(14px + var(--ratio));
 }
+body {
+  @apply bg-background text-text;
+}
 
 /* Custom scrollbar */
 .scrollbar-sa {
