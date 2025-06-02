@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 import { useState, useEffect } from "react";
 
+const STOP_TO_SHOW = 4;
+
 const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
   const [error, setError] = useState(null);
   const [selectedRoute, setSelectedRoute] = useState(null);
@@ -46,7 +48,7 @@ const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
   }
 
   const viewArray = !viewAll
-    ? selectedRoute?.stopIds?.slice(0, 5)
+    ? selectedRoute?.stopIds?.slice(0, STOP_TO_SHOW)
     : selectedRoute?.stopIds;
 
   if (!viewArray || viewArray.length === 0) {
@@ -106,10 +108,10 @@ const ViewBusStops = ({ selectedRouteId, viewAll = false }) => {
         })}
       </ul>
 
-      {selectedRoute?.stopIds?.length > 5 && !viewAll && (
+      {selectedRoute?.stopIds?.length > STOP_TO_SHOW && !viewAll && (
         <span className="block ml-1 mt-3 text-sm text-text/75">
           <Link to={`/bus/${selectedRouteId}`}>
-            + {selectedRoute?.stopIds?.length - 5} More Stops{" "}
+            + {selectedRoute?.stopIds?.length - STOP_TO_SHOW} More Stops{" "}
           </Link>
         </span>
       )}
