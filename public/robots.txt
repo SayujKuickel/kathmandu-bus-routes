@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /add-route
-Allow: /
-
-Sitemap: https://gaadiguide.sayuj.com.np/sitemap.xml
